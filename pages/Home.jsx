@@ -136,6 +136,21 @@ const Home = () => {
           <Mail size={18} /> Contact Me
         </motion.a>
       </motion.section>
+      {/* Footer */}
+      <footer className="flex items-center justify-between bg-[#f2c311] text-black py-4 px-6 text-center font-semibold text-sm">
+        © {new Date().getFullYear()} Olamifeng · Nigeria · All Rights Reserved
+        <h1 className="font-light">
+          Powered by{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://greylinex.vercel.app/"
+            className="font-bold"
+          >
+            AOD Interactive
+          </a>{" "}
+        </h1>
+      </footer>
     </main>
   );
 };
