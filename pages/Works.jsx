@@ -21,7 +21,7 @@ const works = [
 
 const Works = () => {
   return (
-    <main className="bg-neutral-950 min-h-screen text-gray-100 px-6 py-20">
+    <main className="bg-neutral-950 min-h-screen text-gray-100 px-6 py-20 select-none">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold mb-12 text-center">Written Works</h1>
 

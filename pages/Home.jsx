@@ -14,7 +14,7 @@ const staggerContainer = {
 
 const Home = () => {
   return (
-    <main className="bg-neutral-950 text-gray-100 w-full">
+    <main className="bg-neutral-950 text-gray-100 w-full select-none">
       {/* Hero */}
       <motion.section
         variants={fadeIn}
