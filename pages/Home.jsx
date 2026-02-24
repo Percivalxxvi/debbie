@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { fadeUp, fadeIn } from "../utils/motionVariants";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const staggerContainer = {
   hidden: {},
@@ -17,6 +18,7 @@ const staggerContainer = {
 const Home = () => {
   const [featuredPosts, setFeaturedPosts] = useState([]);
   const [loadingFeatured, setLoadingFeatured] = useState(true);
+  const navigate = useNavigate();
 
   // Fetch featured posts directly
   const fetchFeaturedPosts = async () => {
@@ -108,45 +110,9 @@ const Home = () => {
         </motion.div>
       </motion.section>
 
-      {/* Featured Works */}
-      {/* <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="py-20 px-6 bg-neutral-900/50"
-      >
-        <motion.div
-          variants={staggerContainer}
-          className="max-w-6xl mx-auto text-center"
-        >
-          <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-12">
-            Featured Works
-          </motion.h2>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {["Why We Yawn", "Silent Prayers", "Echoes of Faith"].map(
-              (title, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeUp}
-                  whileHover={{ y: -6 }}
-                  className="p-6 bg-neutral-900 border border-neutral-800 rounded-xl transition"
-                >
-                  <BookOpen className="text-[#f2c311] mb-3" />
-                  <h3 className="text-xl font-semibold mb-2">{title}</h3>
-                  <p className="text-gray-400 text-sm">
-                    A short preview of this written piece to spark interest.
-                  </p>
-                </motion.div>
-              ),
-            )}
-          </div>
-        </motion.div>
-      </motion.section> */}
-
       <motion.section
         initial="hidden"
-        whileInView="visible"
+        animate={featuredPosts.length > 0 ? "visible" : "hidden"} // animate after posts load
         viewport={{ once: true }}
         className="py-20 px-6 bg-neutral-900/50"
       >
@@ -169,7 +135,9 @@ const Home = () => {
                   key={post._id}
                   variants={fadeUp}
                   whileHover={{ y: -6 }}
-                  className="relative p-6 bg-neutral-900 border border-neutral-800 rounded-xl transition"
+                  animate={featuredPosts.length > 0 ? "visible" : "hidden"} // animate after posts load
+                  onClick={() => navigate("/postdetails", { state: { post } })}
+                  className="relative p-6 bg-neutral-900 border border-neutral-800 rounded-xl transition cursor-pointer"
                 >
                   {/* Featured badge */}
                   <span className="absolute top-2 right-2 text-xs px-2 py-1 bg-yellow-500 text-black rounded-full font-semibold">
