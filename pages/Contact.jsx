@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { FaMedium, FaLinkedin, FaInstagram, FaWordpress } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeUp, fadeIn } from "../utils/motionVariants";
+import Navbar from "../components/Navbar";
 
 const staggerContainer = {
   hidden: {},
@@ -16,6 +17,7 @@ const staggerContainer = {
 const Contact = () => {
   return (
     <main className="bg-neutral-950 text-gray-100 w-full select-none">
+      <Navbar page="contact" />
       {/* Hero */}
       <motion.section
         variants={fadeIn}

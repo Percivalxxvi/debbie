@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { useChoiceStore } from "../Store";
 
 const Footer = () => {
+  const { setChoiceFalse } = useChoiceStore();
+  const { setChoiceTrue } = useChoiceStore();
   return (
     <footer className="flex lg:flex-row flex-col items-center justify-between bg-[#f2c311] text-black lg:py-4 py-2 lg:px-6 text-center font-semibold text-sm lg:gap-0 gap-2">
-      © {new Date().getFullYear()} Olamifeng · Nigeria · All Rights Reserved
+      <a onClick={setChoiceFalse} className="cursor-pointer">
+        © {new Date().getFullYear()} Olamifeng · Nigeria · All Rights Reserved
+      </a>
       <h1 className="font-light">
         Powered by{" "}
         <a
@@ -17,6 +22,6 @@ const Footer = () => {
       </h1>
     </footer>
   );
-}
+};
 
-export default Footer
+export default Footer;
