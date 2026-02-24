@@ -4,8 +4,8 @@ import { ShieldCheck, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export function Signup() {
-    const [showPassword, setShowPassword] = useState(false);
-    const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -24,13 +24,16 @@ export function Signup() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/create_user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "https://olamifengbackend3.onrender.com/create_user",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
         },
-        body: JSON.stringify(form),
-      });
+      );
 
       const res2 = await res.json();
 
@@ -47,7 +50,6 @@ export function Signup() {
       setLoading(false);
     }
   };
-
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#f2c311] px-4">
