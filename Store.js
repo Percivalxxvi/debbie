@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 export const useChoiceStore = create(
   persist(
     (set) => ({
-      choice: false, // default value
+      choice: true, // default value
 
       // Set choice to true
       setChoiceTrue: () => set({ choice: true }),
@@ -14,12 +14,11 @@ export const useChoiceStore = create(
     }),
     {
       name: "choice-storage", // key in localStorage
-    }
-  )
+    },
+  ),
 );
 
-export const usePagechangeStore = create(set => (
-{
-  page:"dashboard",
-  setPage:(newPage) => set({page:newPage})
+export const usePagechangeStore = create((set) => ({
+  page: "dashboard",
+  setPage: (newPage) => set({ page: newPage }),
 }));
